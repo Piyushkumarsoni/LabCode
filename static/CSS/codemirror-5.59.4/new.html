@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/codemirror.css">
+<script src="lib/codemirror.js"></script>
+<script>
+  var editor = CodeMirror.fromTextArea(myTextarea, {
+    lineNumbers: true
+  });
+  function code(){
+  var myCodeMirror = CodeMirror(document.body);
+  }
+  require([
+  "cm/lib/codemirror", "cm/mode/htmlmixed/htmlmixed"
+], function(CodeMirror) {
+  CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+    mode: "htmlmixed"
+  });
+});
+</script>
+</head>
+<body>
+ <div style="width: 300px;"><button onclick="code()">code</button></div>   
+</body>
+</html>

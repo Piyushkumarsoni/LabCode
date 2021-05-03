@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/exam_page.css' %}">
+    <link rel=stylesheet href="{% static 'CSS/codemirror-5.59.4/lib/codemirror.css' %}">
+    <link rel=stylesheet href="{% static 'CSS/codemirror-5.59.4/doc/docs.css' %}">
+    <script src="{% static 'CSS/codemirror-5.59.4/lib/codemirror.js' %}"></script>
+    <script src="{% static 'CSS/codemirror-5.59.4/mode/xml/xml.js' %}"></script>
+    <script src="{% static 'CSS/codemirror-5.59.4/mode/javascript/javascript.js' %}"></script>
+    <script src="{% static 'CSS/codemirror-5.59.4/mode/css/css.js' %}"></script>
+    <script src="{% static 'CSS/codemirror-5.59.4/mode/htmlmixed/htmlmixed.js' %}"></script>
+    <script src="{% static 'CSS/codemirror-5.59.4/addon/edit/matchbrackets.js' %}"></script>
+
+<script src="{% static 'CSS/codemirror-5.59.4/doc/activebookmark.js' %}"></script>
+<link rel="stylesheet" href="{% static 'node_modules/xterm/css/xterm.css' %}" />
+      <script src="{% static 'node_modules/xterm/lib/xterm.js' %}"></script>
+
+<style>
+  .CodeMirror { height: 730px; width: 500px; border: 2px solid #ddd; }
+  .CodeMirror-scroll { max-height: 730px; }
+  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+  .banner { background: #ffc; padding: 6px; border-bottom: 2px solid silver; text-align: center }
+
+
+</style>
+
+<script type="text/javascript">
+    window.onload = maxWindow;
+
+    function requestFullScreen(element) {
+// Supports most browsers and their versions.
+var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+if (requestMethod) { // Native full screen.
+    requestMethod.call(element);
+} else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+    var wscript = new ActiveXObject("WScript.Shell");
+    if (wscript !== null) {
+        wscript.SendKeys("{F11}");
+    }
+}
+}
+
+var elem = document.body; // Make the body go full screen.
+requestFullScreen(elem);
+    
+</script> 
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="h">welcome!....</h1>
+    <form action="{% url 'runcode' %}" method="POST" class="form-box">
+      {% csrf_token %}
+    <select  name="languages" class="select">
+        <option  name="languages"  value="C" >C</option>
+        <option  name="languages"value="C++">C++</option>
+        <option name="languages" value="Java">Java</option>
+        <option name="languages" value="Python">python</option>
+         
+    </select>
+    <img class="help" src="{% static 'help 1.png' %}">
+
+    <div class="question-box"></div>
+    <div class="code-box">
+        <section id=demo>
+  
+            <div    method="POST" style="position: relative; margin-top: .5em; height: 500px; width: 522px;"><textarea name="code" id=demotext>
+          <!-- Create a simple CodeMirror instance -->
+          {% csrf_token %}
+          <link rel="stylesheet" href="{% static 'CSS/codemirror-5.59.4/lib/codemirror.css' %}">
+          <script src="{% static 'CSS/codemirror-5.59.4/lib/codemirror.js' %}"></script>
+          <script>
+            var editor = CodeMirror.fromTextArea(myTextarea, {
+              lineNumbers: true
+            });
+          </script></textarea>
+            </div>
+            <script>
+              var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+                lineNumbers: true,
+                mode: "text/html",
+                matchBrackets: true
+              });
+            </script>
+          
+           
+          
+          </section>
+    </div>
+    <div class="output-box" id="output">
+      <div id="terminal"></div>
+      <script>
+        var term = new Terminal();
+        var data = JSON.parse("{{data|escapejs}}");
+        term.open(document.getElementById('terminal'));
+        term.write(data['output']);
+      </script>
+    </div>
+    <div class="error-box" id="error"></div>
+    
+      
+    <submit><button class="run" >Run</button></submit>
+  
+
+    <button class="final-submit">Final Submit</button>
+    <img class="arrow-left" src="{% static 'Group 20.png' %}">
+    <img class="arrow-right" src="{% static 'Group 21.png' %}">
+  </form>
+</body>
+</html>

@@ -1,0 +1,119 @@
+.h{
+    position: absolute;
+    width: 580px;
+    height: 76px;
+    left: 28px;
+    top: -10px;
+    
+    font-family: Redressed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 47px;
+    
+    color: #000000;
+    
+}
+.select{
+    position: absolute;
+width: 177px;
+height: 42px;
+left: 814px;
+top: 20px;
+
+background: #48D53C;
+border-radius: 10px;
+}
+
+.help{
+    position: absolute;
+width: 80px;
+height: 64px;
+left: 1338px;
+top: 5px;
+}
+
+.question-box{
+    position: absolute;
+width: 416px;
+height: 759px;
+left: 28px;
+top: 100px;
+
+background: #FEF6F6;
+border: 5px solid #A39F9F;
+box-sizing: border-box;
+}
+
+.code-box{
+    position: absolute;
+width: 522px;
+height: 770px;
+left: 475px;
+top: 100px;
+
+background: #FFFAFA;
+border: 5px solid #A39F9F;
+box-sizing: border-box;
+}
+
+.output-box{
+    position: absolute;
+width: 395px;
+height: 436px;
+left: 1023px;
+top: 100px;
+
+background: #eebfbf;
+border-radius: 10px;
+}
+
+.error-box{
+    position: absolute;
+width: 395px;
+height: 303px;
+left: 1023px;
+top: 556px;
+
+background: #ecbebe;
+border-radius: 10px;
+}
+
+.run{
+    position: absolute;
+width: 131px;
+height: 54px;
+left: 475px;
+top: 890px;
+
+background: #48D53C;
+border-radius: 10px;
+}
+.final-submit{
+    position: absolute;
+width: 182px;
+height: 53px;
+left: 632px;
+top: 890px;
+
+background: #25B8D9;
+border-radius: 10px
+}
+
+.arrow-left{
+    position: absolute;
+width: 82px;
+height: 76px;
+left: 28px;
+top: 881px;
+
+}
+
+.arrow-right{
+    position: absolute;
+width: 82px;
+height: 76px;
+left: 1336px;
+top: 881px;
+
+}

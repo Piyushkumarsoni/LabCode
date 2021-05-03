@@ -1,0 +1,208 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <title></title>
+        <style>
+        body{
+        background: #E5E5E5;
+    
+    }
+    .box1{
+        position: absolute;
+        width: 477px;
+        height: 676px;
+        left: 717px;
+        top: 50px;
+        
+        background: #FFFDFD;
+        border-radius: 0px 40px 40px 0px ;
+    
+    }
+    
+    .box2{
+    position: absolute;
+    width: 477px;
+    height: 676px;
+    left: 247px;
+    top: 50px;
+    
+    background: #276CE8;
+    border-radius: 40px 0px 0px 40px;
+    }
+    .welcome{
+        position: absolute;
+    width: 378px;
+    height: 56px;
+    left: 60px;
+    top: 100px;
+    
+    font-family: Redressed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    
+    color: #FFFDFD;
+    
+    }
+    
+    .line1{
+    position: absolute;
+    width: 205px;
+    height: 0px;
+    left: 65px;
+    top: 140px;
+    
+    
+    border: 3px solid #FFFDFD;
+    }
+    
+    .best{
+        position: absolute;
+    width: 379px;
+    height: 138px;
+    left: 60px;
+    top: 200px;
+    
+    font-family: Redressed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 23px;
+    
+    color: #FFFDFD;
+    
+    }
+    
+    .btn1{
+        position: absolute;
+    width: 144px;
+    height: 40px;
+    left: 70px;
+    top: 360px;
+    font-family: Redressed;
+    text-decoration: none;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    color:white;
+    background: #276CE8;
+    border: 3px solid #FFFDFD;
+    box-sizing: border-box;
+    border-radius: 20px;
+    
+    }
+    
+    .sign{
+        position: absolute;
+    width: 100px;
+    height: 26px;
+    left: 200px;
+    top: 100px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #817A7A;
+    
+    }
+    
+    .line2{
+        position: absolute;
+    width: 60.01px;
+    height: 0px;
+    left: 210px;
+    top: 140px;
+    
+    border: 3px solid #276CE8;
+    
+    }
+    .form_box{
+        top: 180px;
+        left: 120px;
+        position: absolute;
+        width: 280px;
+        transition: .5s;
+    }
+    
+    .input-field{
+            
+    
+            width: 280px;
+            padding: 20px 0px;
+            margin : 5px 0;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid #999;
+        
+            outline: none;
+            background: transparent;
+    }
+    .check-box{
+        margin: 30px 10px 30px 0;
+    }
+    
+    .submit-btn{
+        width: 85%;top: 230px;
+        position: absolute;
+        width: 280px;
+        transition: .5s;
+        padding: 10px 30px;
+        cursor: pointer;
+        display: block;
+        
+        margin: auto;
+        
+        background: linear-gradient( to right , #ff105f,#ffad06);
+        border: 0;
+        outline: none;
+        border-radius: 30px;
+    }
+</style> 
+</head>
+<body>
+   <div class="box1">
+       <div class="sign">SIGN IN</div>
+       
+       <div class="form_box">
+           <form method="POST">
+               {% csrf_token %}
+            <input type="text" class="input-field" placeholder="User Id" name="EMAIL" required>
+            <input type="text" class="input-field" placeholder="Enter Password" name="PSWD" required>
+            <input type="checkbox" class="check-box" name=""><span>forget Password</span>
+            <button type="submit" class="submit-btn"> login</button>
+            {% if messages %}
+            {% for result in messages  %}
+            <b style="color: green;"> {{result}}</b>
+            {% endfor %}
+            {% endif %} 
+           </form>
+       </div>
+   </div> 
+
+   <div class="box2">
+       <div class="welcome">
+        Welcome to LabCode
+       </div>
+       <div class="line1"></div>
+       <div class="best">
+        “trust yourself, you know more than you think you do”<br><br> if you haven’t registered yet then
+       </div>
+       <a class="btn1" href="{% url 'registration' %}">Register Now</a>
+   </div>
+</body>
+</html>

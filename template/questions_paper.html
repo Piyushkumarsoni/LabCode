@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/question_paper.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box0">
+        <h1 class="h">welcome back!</h1>
+        <button>Post</button>
+        </div>
+        <div class="box1">
+            <div class="box2">
+                <div class="profile" ><a href="#">Profile</a></div>
+                <div class="create_testroom" ><a href="{% url 'enrollment' %}">create testroom</a></div>
+                <div class="View_Result" ><a href="#">view Result</a></div>
+                <div class="Qustion_paper" ><a href="#">Question Paper</a></div>
+                <div class="Logout" ><a href="#">Log out</a></div>
+            </div>
+        </div>
+            <div class="box-blue"></div>
+            <div class="paper">
+                <input type="text" class="papername"  placeholder="Paper name">
+                <select class="select">
+                    <option>C</option>
+                    <option>C++</option>
+                    <option>Java</option>
+                    <option>python</option>
+                     
+                </select>
+             </div>
+            <div class="box-blue1"></div>
+             <div class="question-box"><textarea class="textArea"></textarea></div>
+             <div class="test-case"><textarea class="test_box"></textarea></div>
+             <div class="icon-box"></div>
+             <img class="arrow-left" src="{% static 'Group 20.png' %}">
+             <img class="arrow-right" src="{% static 'Group 21.png' %}">
+        
+</body>
+</html>

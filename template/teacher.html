@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/teacher.css' %}">
+</head>
+<body>
+    <div class="box0">
+    <h1 class="h">LabCode!</h1>
+    <button>Post</button>
+    </div>
+    <div class="box1">
+        <div class="box2">
+            <div class="profile" ><a href="{% url 'teacher' %}">Profile</a></div>
+            <div class="create_testroom" ><a href="{% url 'enrollment' %}">create testroom</a></div>
+            <div class="View_Result" ><a href="#">view Result</a></div>
+            <div class="Qustion_paper" ><a href="{% url 'question_paper'%}">Question Paper</a></div>
+            <div class="Logout" ><a href="{% url 'login'%}">Log out</a></div>
+        </div>
+        
+    </div>
+</body>
+</html>

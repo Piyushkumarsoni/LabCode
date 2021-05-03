@@ -1,0 +1,212 @@
+.nav_bar{
+    position: absolute;
+width: 100%;
+height: 100px;
+left: 0px;
+top: 0px;
+
+background: #0D0C0C;
+}
+
+.nav_bar h1{
+    position: absolute;
+width: 266px;
+height: 72px;
+left: 102px;
+top: 0px;
+
+font-family: Redressed;
+font-style: normal;
+font-weight: normal;
+font-size: 45px;
+line-height: 42px;
+
+color: #FFFDFD;
+}
+
+.btn{
+    position: absolute;
+width: 214px;
+height: 35px;
+left: 1200px;
+top: 35px;
+
+background: #FFFDFD;
+border-radius: 20px;
+}
+.btn a{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 29px;
+text-decoration: none;
+
+color: #000000;
+}
+
+.Image img{
+    position: absolute;
+width: 100%;
+height: 562px;
+left: 0px;
+top: 90px;
+
+background: url(pexels-eberhard-grossgasteiger-1624438.jpg);
+}
+
+.Welcome{position: absolute;
+    width: 446px;
+    height: 224px;
+    left: 550px;
+    top: 124px;
+    
+    font-family: Redressed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    
+    color: #FFFFFF;
+
+}
+
+.info{
+    position: absolute;
+width: 446px;
+height: 224px;
+left: 550px;
+top: 220px;
+
+font-family: Redressed;
+font-style: normal;
+font-weight: normal;
+font-size: 23px;
+line-height: 29px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+
+.Image a{
+    position: absolute;
+width: 97px;
+height: 27px;
+left: 730px;
+top: 395px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+padding-top: 9px;
+
+text-align: center;
+text-decoration: none;
+background: #FFFFFF;
+border-radius: 30px;
+color: #000000;
+
+}
+.role h2{
+    position: absolute;
+width: 100%;
+height: 35px;
+left: 102px;
+top: 658px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+
+color: #276CE8;
+}
+
+.Student img{
+    position: absolute;
+width: 235px;
+height: 223px;
+left: 295px;
+top: 790px;
+
+
+
+}
+.S{
+    position: absolute;
+width: 106px;
+height: 35px;
+left: 360px;
+top: 1020px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+
+color: #407093;
+
+
+}
+
+.Teacher{
+    position: absolute;
+width: 249px;
+height: 223px;
+left: 900px;
+top: 750px;
+}
+
+.T{
+    position: absolute;
+width: 110px;
+height: 35px;
+left: 970px;
+top: 1015px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+
+color: #276CE8;
+
+}
+
+.Student_line{
+    position: absolute;
+width: 376px;
+height: 57.89px;
+left: 216px;
+top: 1100px;
+
+}
+.Teacher_line{
+    position: absolute;
+width: 529px;
+height: 66px;
+left: 750px;
+top: 1100px;
+
+}
+
+
+
+footer{
+    position: absolute;
+width: 100%;
+height: 162px;
+left: 0px;
+top: 1258px;
+
+background: #0D0D0D;
+}
+
+
