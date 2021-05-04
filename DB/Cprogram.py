@@ -33,7 +33,6 @@ def Java_program(code):
     var2="javacode.java"
     var3="java"
     var4= input("Main class name:-")
-
     subprocess.run([var1,var2])
     subprocess.run([var3,var4])
 
