@@ -7,6 +7,7 @@ class Userreg(models.Model):
     EMAIL = models.CharField(max_length=50)
     MOBILE_NO = models.CharField(max_length=12)
     PSWD = models.CharField(max_length=15)
+    
 
     def __str__(self):
        return self.EMAIL

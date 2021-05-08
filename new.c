@@ -1,14 +1,7 @@
-#include<stdio.h>
-
-  int main()
-
-  {
-
-  int a;
-
-  printf("Hello..\n");
-
-  scanf("%d",&a);
-
-  return 0;
+#include<stdio.h>
+  int main()
+  {
+  printf("Pritam soni...\n");
+  printf("hello piyush");
+  return 0;
   }
