@@ -86,6 +86,14 @@ requestFullScreen(elem);
           </section>
     </div>
     <div class="output-box" id="output">
+      <div id="terminal"></div>
+      <script>
+        var term = new Terminal();
+        var data = JSON.parse("{{data|escapejs}}");
+        term.open(document.getElementById('terminal'));
+        term.write(data['output']);
+      </script>
+    </div>
       
     <div class="error-box" id="error"></div>
     
