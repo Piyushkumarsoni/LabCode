@@ -8,15 +8,13 @@
     <title>Document</title>
     <style>
         .profiles{
-    position: absolute;
+            position: absolute;
 width: 650px;
-height: 400px;
-left: 335px;
-top: 170px;
+height: 790px;
+left: 351px;
+top: 162px;
 
-background: #FFFDFD;
-border: 2px solid #A39F9F;
-box-sizing: border-box;
+background: #FFFFFF;
 border-radius: 10px;
 }
 
@@ -39,10 +37,10 @@ border-radius: 10px;
 
 .h2{
     position: absolute;
-    width: 300px;
-    height: 40px;
-    left: 20px;
-    top: 60px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 40px;
     
     font-family: sans-serif;
     font-style: normal;
@@ -56,9 +54,9 @@ border-radius: 10px;
 
 .h3{
     position: absolute;
-    width: 300px;
-    height: 40px;
-    left: 20px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
     top: 120px;
     
     font-family: sans-serif;
@@ -103,6 +101,144 @@ border-radius: 10px;
     color: #1a1919;
     
 }
+
+.id{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    left: 20px;
+    top: 40px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919;
+    
+}
+
+.id1{
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    left: 200px;
+    top: 61px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919;    
+}
+
+
+.id2{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    left: 20px;
+    top: 10px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919;
+    
+}
+.id3{
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    left: 200px;
+    top: 31px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919; 
+    
+}
+
+.id4{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919;
+    
+}
+
+.id5{
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    left: 180px;
+    top: 21px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919; 
+    
+}
+
+.id6{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919;
+    
+}
+
+
+
+.id7{
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    left: 180px;
+    top: 21px;
+    
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    
+    line-height: 15px;
+    
+    color: #1a1919; 
+    
+}
+
     </style>
     <link rel="stylesheet" href="{% static 'CSS/teacher.css' %}">
 </head>
@@ -121,16 +257,27 @@ border-radius: 10px;
         </div>
         
     </div>
+    {% block body %}
     <div class="profiles">
         <h1 class="h1">ABOUT</h1>
-    <div class="h2"><h4>Id</h4></div>
-    <div>1009</div>
-    <div class="h3"><h4>Name</h4>
+            <div class="h2">
+                <div class="id"><h4>Id</h4></div>
+                <div class="id1">1009</div>
+            </div>
+    
+        <div class="h3">
+            <div class="id2"><h4>Name</h4></div>
+            <div class="id3">{{ Userdetail.Name }}</div>
+        </div>
+        <div class="h4">
+            <div class="id4"><h4>Email</h4></div>
+            <div class="id5">piyushkumar.aa@gmail.com</div>
+        </div>
+        <div class="h5">
+            <div class="id6"><h4>Mobile</h4></div>
+            <div class="id7">9304449282</div>
+        </div>
     </div>
-
-    <div>Piyush Kumar</div>
-    <div class="h4"><h4>Email</h4></div>
-    <div class="h5"><h4>Mobile</h4></div>
-    </div>
+    {% endblock %}
 </body>
 </html>

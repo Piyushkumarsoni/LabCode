@@ -1,11 +1,15 @@
-from subprocess import Popen, CREATE_NEW_CONSOLE,PIPE,run
+from subprocess import Popen, CREATE_NEW_CONSOLE,PIPE,run,check_output
 import os
- 
-v1="gcc"
-v2="cp.c"
-v3="-o"
-v4="./out"
-p=Popen([v1,v2,v3,v4], stdout=PIPE,stdin=PIPE)
-x=Popen('out.exe')
-x_out=x.communicate(b"5")
-#Popen('out.exe', )
+
+data, temp = os.pipe()
+os.write(temp, bytes("5 10\n", "utf-8"))
+os.close(temp)
+  
+var1="gcc"
+var2="cp.c"
+var3="-o"
+var4="./out"
+#p=Popen([var1,var2,var3,var4],stdout=PIPE,stdin=PIPE)
+
+s = Popen([var1,var2,var3,var4], stdin = data, shell = True)
+run('out.exe')

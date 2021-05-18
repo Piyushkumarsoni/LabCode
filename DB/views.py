@@ -86,8 +86,9 @@ def enrollment(request):
     return render(request,'enrollment.html')
 
 def teacher(request):
-    Userdetails=Userreg.objects.get(Name=request.POST['FNAME'],EMAIL=request.POST['EMAIL'],MOBILE=request.POST['MOBILE_NO'])
-    print(Userdetails)
+    if request.method=='POST':
+        Userdetails=Userreg.objects.get(Name=request.POST['FNAME'],EMAIL=request.POST['EMAIL'],MOBILE=request.POST['MOBILE_NO'])
+        print(Userdetails)
     return render(request, 'teacher.html')
     
 
