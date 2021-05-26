@@ -10,7 +10,7 @@ class Userreg(models.Model):
     
 
     def __str__(self):
-       return self.EMAIL
+       return self.EMAIL 
 
     class Meta:
         db_table="userreg"

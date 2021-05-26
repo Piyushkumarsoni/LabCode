@@ -9,6 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 import random
 import codecs
 from json import dumps
+from .models import Userreg
 
 @csrf_protect
 
@@ -17,17 +18,21 @@ def runcode(request):
     if request.method== "POST":
         lang=request.POST['languages']
         code=request.POST['code']
+        input_part=request.POST['input_area']
+        y=input_part
+        input_part = input_part.replace("\n"," ").split(" ")
         print(code)
         print("\n\n")
         print(lang)
+        def input():
+            a = input_part[0]
+            del input_part[0]
+            return a
         if lang=="C":
             y=cprogram(code)
-            y=y.decode('UTF-8')
-            content={
-                'output': y
-            }
-            dataJSON=dumps(content)
-            print(y)
+            output=y.decode('UTF-8')
+            
+            print(output)
 
         elif lang=="C++":
             Cpp_program(code)
@@ -35,7 +40,7 @@ def runcode(request):
             Java_program(code)
         elif lang=="Python":
             python_program(code)
-    return render(request,'exam_page.html',{'data': dataJSON})
+    return render(request,'exam_page.html',{'output':output,'code':code })
 
 
 
@@ -62,6 +67,8 @@ def login(request):
             Userdetails=Userreg.objects.get(EMAIL=request.POST['EMAIL'],PSWD=request.POST['PSWD'])
             print("USername=",Userdetails)
             request.session['EMAIL']=Userdetails.EMAIL
+            data_list= Userreg.objects.all()
+            print(data_list)
             return render(request,'teacher.html')
         except ObjectDoesNotExist:
             messages.success(request,"Username/ password Invalid..!")
@@ -87,10 +94,15 @@ def enrollment(request):
 
 def teacher(request):
     if request.method=='POST':
-        Userdetails=Userreg.objects.get(Name=request.POST['FNAME'],EMAIL=request.POST['EMAIL'],MOBILE=request.POST['MOBILE_NO'])
+        Userdetails=Userreg.objects.get(EMAIL=request.POST['EMAIL'])
         print(Userdetails)
     return render(request, 'teacher.html')
-    
+def Tprofile(request):
+    data_list= Userreg.objects.all()
+    print(data_list)
+    return render(request,'teacher.html')
+
+
 
 def Student_registration(request):
     if request.method=='POST':

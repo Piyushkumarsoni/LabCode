@@ -70,8 +70,7 @@ requestFullScreen(elem);
     <div class="code-box" name="code_area">
         <section id=demo>
   
-            <div    method="POST" style="position: relative; margin-top: .5em; height: 500px; width: 522px;"><textarea name="code" id=demotext>
-          </textarea>
+            <div    method="POST" style="position: relative; margin-top: .5em; height: 500px; width: 522px;"><textarea name="code" id=demotext>{{code}}</textarea>
             </div>
             <script>
               var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
@@ -86,16 +85,12 @@ requestFullScreen(elem);
           </section>
     </div>
     <div class="output-box" id="output">
-      <div id="terminal"></div>
-      <script>
-        var term = new Terminal();
-        var data = JSON.parse("{{data|escapejs}}");
-        term.open(document.getElementById('terminal'));
-        term.write(data['output']);
-      </script>
+      {{output}}
     </div>
-      
-    <div class="error-box" id="error"></div>
+    
+    <div class="error-box" id="error">
+      <textarea class="form-control" rows="18" name="input_area" background="#946f6f" style="border:1px solid rgb(65, 39, 39);">{{input}}</textarea>
+    </div>
     
       
     <submit><button class="run" >Run</button></submit>

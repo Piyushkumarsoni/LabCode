@@ -30,6 +30,7 @@ urlpatterns = [
     path('Studentlogin',views.Studentlogin,name='studentlogin'),
     path('logout',views.login,name='logout'),
     path('question_paper',views.question_paper, name='question_paper'),
-    path('runcode',views.runcode, name='runcode')
+    path('runcode',views.runcode, name='runcode'),
+    path('Tprofile',views.Tprofile, name='Tprofile'),
     
 ]
