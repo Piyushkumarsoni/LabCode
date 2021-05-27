@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="box0">
-    <h1 class="h">LabCode!</h1>
+    <h1 class="h">WelCome! {{ data.FNAME }}{{ data.LNAME }}</h1>
     
     </div>
     <div class="box1" style=" position: absolute;
@@ -53,7 +53,7 @@
         
         background: #FFF7F7;
         border: 1px solid #000000;
-        box-sizing: border-box;">{{ data_list.FNAME }}{{ data_list.LNAME }}</div>
+        box-sizing: border-box;">{{ data.FNAME }}{{ data.LNAME }}</div>
         <br>
         <h3 style="position: absolute;
         width: 40px;
@@ -83,7 +83,7 @@
         
         background: #FFF7F7;
         border: 1px solid #000000;
-        box-sizing: border-box;">9304449282</div>
+        box-sizing: border-box;">{{data.MOBILE_NO}}</div>
         <br>
         <h3 style="position: absolute;
         width: 92px;
@@ -98,7 +98,7 @@
         
         background: #FFF7F7;
         border: 1px solid #000000;
-        box-sizing: border-box;">{{ data_list.EMAIL }}</div>
+        box-sizing: border-box;">{{ data.EMAIL }}</div>
         <br>
         <h3 style="position: absolute;
         width: 212px;

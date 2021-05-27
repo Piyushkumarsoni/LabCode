@@ -16,6 +16,16 @@ class Userreg(models.Model):
         db_table="userreg"
 
 
+class paper_code(models.Model):
+    papercode=models.CharField(max_length=20)
+    question=models.CharField(max_length=500)
+
+    def __str__(self):
+       return self.papername
+    
+    class Meta:
+        db_table="questionpaper"
+
 class Studentreg(models.Model):
     F_name=models.CharField(max_length=100)
     L_name=models.CharField(max_length=100)

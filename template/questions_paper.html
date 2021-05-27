@@ -24,6 +24,8 @@
             </div>
         </div>
             <div class="box-blue"></div>
+            <form action="{% url 'question_paper' %}" method="POST" >
+            {% csrf_token %}
             <div class="paper">
                 <input type="text" class="papername"  placeholder="Paper name">
                 <select class="select">
@@ -35,9 +37,11 @@
                 </select>
              </div>
             <div class="box-blue1"></div>
-             <div class="question-box"><textarea class="textArea"></textarea></div>
+             <div class="question-box"><textarea name="question" class="textArea"></textarea></div>
              <div class="test-case"><textarea class="test_box"></textarea></div>
              <div class="icon-box"></div>
+             <button class="final-submit">add</button>
+             </form>
              <img class="arrow-left" src="{% static 'Group 20.png' %}">
              <img class="arrow-right" src="{% static 'Group 21.png' %}">
         

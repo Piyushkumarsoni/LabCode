@@ -1,3 +1,4 @@
+from django.db.models.fields import EmailField
 from django.shortcuts import render
 from DB.models import *
 from DB.Cprogram import *
@@ -7,10 +8,11 @@ from django.views.decorators.csrf import csrf_protect
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
 import random
+import sys
 import codecs
 from json import dumps
 from .models import Userreg
-
+from django.contrib.auth.models import User
 @csrf_protect
 
 
@@ -21,13 +23,14 @@ def runcode(request):
         input_part=request.POST['input_area']
         y=input_part
         input_part = input_part.replace("\n"," ").split(" ")
-        print(code)
-        print("\n\n")
-        print(lang)
         def input():
             a = input_part[0]
             del input_part[0]
             return a
+        print(code)
+        print("\n\n")
+        print(lang) 
+
         if lang=="C":
             y=cprogram(code)
             output=y.decode('UTF-8')
@@ -39,7 +42,18 @@ def runcode(request):
         elif lang=="Java":
             Java_program(code)
         elif lang=="Python":
-            python_program(code)
+            try:
+                orig_stdout = sys.stdout
+                sys.stdout = open('file.txt', 'w')
+                exec(code)
+                sys.stdout.close()
+                sys.stdout=orig_stdout
+                output = open('file.txt', 'r').read()
+            except Exception as e:
+                sys.stdout.close()
+                sys.stdout=orig_stdout
+                output = e
+        print(output)   
     return render(request,'exam_page.html',{'output':output,'code':code })
 
 
@@ -61,18 +75,15 @@ def Studentlogin(request):
     return render(request,'studentlogin.html')
 
 def login(request):
-    
     if request.method=="POST":
         try:
             Userdetails=Userreg.objects.get(EMAIL=request.POST['EMAIL'],PSWD=request.POST['PSWD'])
-            print("USername=",Userdetails)
+            print("Username=",Userdetails)
             request.session['EMAIL']=Userdetails.EMAIL
-            data_list= Userreg.objects.all()
-            print(data_list)
-            return render(request,'teacher.html')
+            return render(request,'teacher.html',{'data':Userdetails})
         except ObjectDoesNotExist:
             messages.success(request,"Username/ password Invalid..!")
-    return render(request,'login.html')
+    return render(request,"login.html",)
 
 def Userregisteration(request):
     if request.method=='POST':
@@ -93,14 +104,11 @@ def enrollment(request):
     return render(request,'enrollment.html')
 
 def teacher(request):
-    if request.method=='POST':
-        Userdetails=Userreg.objects.get(EMAIL=request.POST['EMAIL'])
-        print(Userdetails)
-    return render(request, 'teacher.html')
-def Tprofile(request):
-    data_list= Userreg.objects.all()
-    print(data_list)
-    return render(request,'teacher.html')
+    Userdetails=Userreg.objects.all()
+    print("Username=",Userdetails)
+    
+    return render(request,'teacher.html',{'data':Userdetails})
+    
 
 
 
@@ -129,9 +137,22 @@ def generate():
     return p
 
 def question_paper(request):
+    if request.method== "POST":
+        question=request.POST['question']
+        f=open("file.txt",'w')
+        f.write(question)
+        f.close()
+        print(question)
     return render(request,'questions_paper.html')
 
-
+def paper(request):
+    if request.method=="POST":
+         if request.POST.get('papercode') and request.POST.get('question'):
+            saverecord=paper_code()
+            saverecord.papercode=request.POST.get('papercode')
+            saverecord.question=request.POST.get('question')
+            saverecord.save()
+            return render(request,"question_paper.html")
 
 
 
