@@ -9,7 +9,7 @@ def cprogram(code):
     var3="-o"
     var4="out"
     subprocess.run([var1,var2,var3,var4])
-    x=subprocess.run("./out",stdout=PIPE)
+    x=subprocess.run("./out",stdout=PIPE,stderr=PIPE)
     return x.stdout
 
 def Cpp_program(code):
@@ -19,9 +19,9 @@ def Cpp_program(code):
     var1="g++"
     var2="try.cpp"
     var3="-o"
-    var4="out"
+    var4="out1"
     subprocess.run([var1,var2,var3,var4])
-    x=subprocess.run("./out",stdout=PIPE)
+    x=subprocess.run("./out1",stdout=PIPE)
     return x.stdout
 
 
@@ -36,13 +36,5 @@ def Java_program(code):
     subprocess.run([var1,var2])
     subprocess.run([var3,var4])
 
-def python_program(code):
-    f=open("testpython.py",'w')
-    f.write(code)
-    f.close()
-    var1="python"
-    var2="testpython.py"
-    x=subprocess.run([var1,var2],stdout=PIPE)
-    return x.stdout
 
 

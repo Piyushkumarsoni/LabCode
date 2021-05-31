@@ -1,2 +1,1 @@
-Enter your name:
-Hello, 232
+2020 is a leap year
