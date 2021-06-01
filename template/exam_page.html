@@ -74,10 +74,7 @@ requestFullScreen(elem);
     <div class="code-box">
         <section id=demo>
           {% csrf_token %}
-            <div    method="POST" style="position: relative; margin-top: .5em; height: 500px; width: 522px;"><textarea name="code" id=demotext>
-        
-         {{code}}
-          </textarea>
+            <div    method="POST" style="position: relative; margin-top: .5em; height: 500px; width: 522px;"><textarea name="code" id=demotext>{{code}}</textarea>
             </div>
             <script>
               var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {

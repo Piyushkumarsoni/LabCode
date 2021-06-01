@@ -14,9 +14,9 @@ from json import dumps
 from .models import Userreg
 from django.contrib.auth.models import User
 import re
+
+
 @csrf_protect
-
-
 def runcode(request):
     if request.method== "POST":
         lang=request.POST['languages']
@@ -24,112 +24,31 @@ def runcode(request):
         raw_code={"code":code}
         input_part=request.POST['input_area']
         y=input_part
-        input_part = list(map(str.strip,input_part.split("\n")))
-        print(input_part)
-        if len(input_part)==1:
-            if input_part[0].strip()=="":
-                paraMeter=False
-            else:
-                paraMeter='{"'+input_part[0]+'"}'
-        else:
-            paraMeter=str(input_part)
-            paraMeter="{"+paraMeter[1:]
-            paraMeter=paraMeter[:-1]+"}"
-            paraMeter=re.sub(r"(\"|\')",'"',paraMeter)
-        print(paraMeter)
+        def doadd(s):
+            s=s.strip()
+            return s+"\n"
+        input_part = list(map(doadd,input_part.split("\n")))
         def input():
             a = input_part[0]
             del input_part[0]
             return a
-        # print(code)
-        # print("\n\n")
-        # print(lang) 
-
         if lang=="C":
             
-            # patt=re.compile(r"scanf\(\"%d\",\s*&([a-zA-Z_][a-zA-Z-_]*)\);")
-            # matches=patt.finditer(code)
-            # for c in matches:
-            #     temp = str.maketrans(c.group(0), )
-            #     code = code.translate(temp)
-            if paraMeter!=False:
-                def Convert_Input(match_obj):
-                    if match_obj.group(1) is not None:
-                        return match_obj.group(1)+"=atoi(GetInput());"
-                    return match_obj
-                def Convert_InputV2(match_obj):
-                    if match_obj.group(1) is not None:
-                        return match_obj.group(1)+"=GetInput();"
-                    return match_obj
-                def Add_Input_and_Function(match_obj):
-                    
-                    mytext="""
-
-    int position=0;
-    char *myarray["""+str(len(input_part))+"""] = """+paraMeter+""";
-    char* GetInput()  
-    {  
-        position++;  
-    
-        return myarray[position-1];
-    }
-    """
-                    if match_obj.group(1) is not None:
-                        return mytext+match_obj.group(1)
-                    return match_obj 
-                code=re.sub(r"scanf\(\"%d\",\s*&([a-zA-Z_][a-zA-Z-_]*)\);",Convert_Input,code)
-                code=re.sub(r"scanf\(\"%s\",\s*&([a-zA-Z_][a-zA-Z-_]*)\);",Convert_InputV2,code)
-                code=re.sub(r"(int main\(\)|void main\(\))",Add_Input_and_Function,code)
-            # code='#include <stdlib.h>\n'+code
-            # print(code)
-            output=cprogram(code)
-            try:
-                output=output.decode('UTF-8')
-            except:
-                output="error"
-            return render(request,'exam_page.html',{'output':output,'code':raw_code["code"],'input':y})
-
-            #print(output)
-
-
+            output=cprogram(code,input_=input_part)
         elif lang=="C++":
-            y=Cpp_program(code)
-            y=y.decode('UTF-8')
-            content1={
-                'output': y
-            }
-            dataJSON=dumps(content1)
-            print(y)
-            return render(request,'exam_page.html',{'output':y,'code':code})
-            
-
+            output=Cpp_program(code,input_=input_part)
         elif lang=="Java":
-            y=Java_program(code)
-            y=y.decode('UTF-8')
-            content2={
-                'output': y
-            }
-            dataJSON=dumps(content2)
-            print(y)
-            return render(request,'exam_page.html',content2,{'code':code})
-
-
+            output=Java_program(code,input_=input_part)
         elif lang=="Python":
-            try:
-                orig_stdout = sys.stdout
-                sys.stdout = open('file.txt', 'w')
-                exec(code)
-                sys.stdout.close()
-                sys.stdout=orig_stdout
-                output = open('file.txt', 'r').read()
-            except Exception as e:
-                sys.stdout.close()
-                sys.stdout=orig_stdout
-                output = e
-            print(output)   
-        
-    return render(request,'exam_page.html',{'output':output,'input':y,'code':code})
-
+            output=python_program(code=code,input_=input_part)
+        try:
+            if output!="Error in code":
+                output=output.decode('UTF-8')
+            else:
+                output="Error in the code"
+        except:
+            pass
+    return render(request,'exam_page.html',{'output':output,'code':raw_code["code"],"input":y})
 
 
 
