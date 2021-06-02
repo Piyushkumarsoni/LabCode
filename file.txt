@@ -1,1 +1,2 @@
-2020 is a leap year
+Prime numbers between 10 and 50 are:
+

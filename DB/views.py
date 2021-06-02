@@ -40,7 +40,18 @@ def runcode(request):
         elif lang=="Java":
             output=Java_program(code,input_=input_part)
         elif lang=="Python":
-            output=python_program(code=code,input_=input_part)
+            #output=python_program(code=code,input_=input_part)
+            try:
+                orig_stdout = sys.stdout
+                sys.stdout = open('file.txt', 'w')
+                exec(code)
+                sys.stdout.close()
+                sys.stdout=orig_stdout
+                output = open('file.txt', 'r').read()
+            except Exception as e:
+                sys.stdout.close()
+                sys.stdout=orig_stdout
+                output = e
         try:
             if output!="Error in code":
                 output=output.decode('UTF-8')
