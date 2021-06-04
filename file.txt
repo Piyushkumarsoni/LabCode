@@ -1,2 +1,0 @@
-Prime numbers between 10 and 50 are:
-
