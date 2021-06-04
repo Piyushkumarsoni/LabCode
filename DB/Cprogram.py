@@ -61,7 +61,7 @@ def Java_program(code,input_=[]):
     mydir=base+str(uuid.uuid1())
     mkdir(mydir)
     var2=mydir+"\\Javacode.java"
-    os.chdir(mydir)
+    #os.chdir(mydir)
     f=open(var2,"w")
     #(f,var2)=tempfile.mkstemp(prefix="Javacode",suffix=".java")
     print(code)

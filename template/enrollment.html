@@ -2,6 +2,38 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        .linkshare{
+    position: absolute;
+width: 500px;
+height: 42px;
+left: 401px;
+top: 282px;
+
+background: #FFFDFD;
+border: 1px solid #A39F9F;
+box-sizing: border-box;
+border-radius: 10px;
+}
+
+.copy{
+    position: absolute;
+width: 100px;
+height: 30px;
+left: 1090px;
+top: 400px;
+
+background: #25B8D9;
+border-radius: 10px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 29px;
+border: none;
+color: #FFFDFD;
+}
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +55,23 @@
         
     </div>
     <div class="please">
-        Please ask your Examines to register first with given below link:
-
-
+        Please copy this given below link to student can Register:
     </div>
-    <div class="linkshare">
 
+    <div >
+        <textarea  class="linkshare" id="Linkcop" style="font-size: 25px" >http://127.0.0.1:8000/Student_registration</textarea>
     </div>
-    <button class="copy"><a href="{% url 'Student_registration'%}">copy</a></button>
+    <button class="copy" onclick="myfun()">copy</button>
+
+    <script>
+        function myfun()
+        {
+            var copyText=document.getElementById("Linkcop");
+            copyText.select();
+            copyText.setSelectionRange(0,99999)
+            document.execCommand("copy");
+            alert("Link will be copied"+ copyText.value);
+        }
+    </script>
 </body>
 </html>
