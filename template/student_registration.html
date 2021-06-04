@@ -1,117 +1,376 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
    
+    
+    <title>Document</title>
+    <style >.nav{
+      position: absolute;
+  width: 100%;
+  height: 76px;
+  left: 0px;
+  top: 0px;
+  
+  background: #494747;
+  }
+  .background{
+      position: absolute;
+  width: 100%;
+  height: 884px;
+  left: 0px;
+  top: 76px;
+  
+  background: linear-gradient(180deg, #67E4FF 0%, rgba(255, 255, 255, 0) 91.87%), #4A47E2;
+  
+  }
+  
+  .welcome{
+      position: absolute;
+  width: 288px;
+  height: 86px;
+  left: 93px;
+  top: 180px;
+  
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 149.6%;
+  /* or 54px */
+  
+  text-align: center;
+  
+  color: #FFFDFD;
+  
+  }
+  
+  .instruction{
+      position: absolute;
+  width: 294px;
+  height: 146px;
+  left: 87px;
+  top: 348px;
+  
+  font-family: Quicksand;
+  font-style: italic;
+  
+  font-size: 20px;
+  line-height: 149.6%;
+  /* or 36px */
+  font-weight: bold;
+  text-align: center;
+  
+  color: #FFFFFF;
+  
+  }
+  
+  .login_btn{
+      position: absolute;
+  width: 120px;
+  height: 30px;
+  left: 154px;
+  top: 500px;
+  background: #FFFDFD;
+  border-radius: 50px;
+  text-decoration: none;
+  
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 149.6%;
+  /* identical to box height, or 36px */
+  
+  text-align: center;
+  
+  color: #000000;
+  
+  }
+  
+  .form-box{
+      position: absolute;
+  width: 1000px;
+  height: 688px;
+  left: 421px;
+  top: 148px;
+  
+  background: #FFFDFD;
+  border-radius: 50px 0px;
+  }
+  
+  .fill{
+      position: absolute;
+  width: 354px;
+  height: 45px;
+  left: 70px;
+  top: 50px;
+  
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 149.6%;
+  /* identical to box height, or 45px */
+  
+  
+  color: #7B7575;
+  
+  }
+  
+  .firstname{
+      position: absolute;
+  width: 374px;
+  height: 50px;
+  left: 70px;
+  top: 130px;
+  
+  background: #C4C4C4;
+  border-radius: 10px;
+  border-style: none;
+  font-size: medium;
+  color: #494747;
+  }
+  
+  .lastname{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 130px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .email{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 220px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .phone{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 220px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .RNo{
+  
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 310px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .Roll{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 310px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .Semester{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 400px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  
+  .status{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 400px;
+      
+      background: #C4C4C4;
+      border-radius: 10px;
+      border-style: none;
+      font-size: medium;
+      color: #494747;
+  }
+  .register{
+      position: absolute;
+  width: 120px;
+  height: 44px;
+  left: 610px;
+  top: 450px;
+  
+  background: #276CE8;
+  border-radius: 50px;
+  border-style: none;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 149.6%;
+  /* or 45px */
+  
+  text-align: center;
+  
+  color: #FFFDFD;
+  }
+  
+  .Reset{
+      position: absolute;
+  width: 120px;
+  height: 44px;
+  left: 750px;
+  top: 450px;
+  
+  background: #276CE8;
+  border-radius: 50px;
+  border-style: none;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 149.6%;
+  /* or 45px */
+  
+  text-align: center;
+  
+  color: #FFFDFD;
+  }
+  
+  .f_name{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 180px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  }
+  
+  .l_name{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 180px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  }
+  
+  .Email{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 270px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  
+  }
+  
+  .Mobile{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 270px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  }
+  
+  .reg_no{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 70px;
+      top: 360px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  }
+  
+  .roll_no{
+      position: absolute;
+      width: 374px;
+      height: 50px;
+      left: 500px;
+      top: 360px;
+      font-family: sans-serif;
+      color: red;
+      font-size: 20px;
+  }</style>
 </head>
-
-<body style="background-color: #ac3333;;">
-    <div style="position: absolute;
-    width: 800px;
-    height: 200px;
-    left: 250px;
-    top: 70px;
-    
-    background: #FFFFFF;
-    border-radius: 20px;">
-
-
-
-        <div style="position: absolute;
-        width: 751px;
-        height: 117px;
-        left: 30px;
-        top: 20px;
-        
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 29px;
-        
-        color: #269655;"><h1>LabCode</h1>
-         Register for your exam, you will get OTP in your mail just 24 hrs before exam</div>
-        <div style="position: absolute;
-        width: 751px;
-        height: 90px;
-        left: 30px;
-        top: 150px;
-        
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 29px;
-        
-        color: #F70909;
-        ">*please provide valid email ID and Mobile no.</div>
-    </div>
-    
-    <div style="position: absolute;
-    width: 800px;
-    height: 390px;
-    left: 250px;
-    top: 300px;
-    
-    background: #FFFFFF;
-    border-radius: 20px;">
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" style="border:2pt; position: absolute;
-        width: 280px;
-        height: 50px;
-        left: 120px;
-        top: 50px;
-        border: 1px solid grey;
-        border-radius: 20px;" placeholder="First Name" name="F_name" required autocomplete="off">
-        <input type="text" style="border:2pt; position: absolute;
-        width: 280px;
-        height: 50px;
-        left: 420px;
-        top: 50px;
-        border: 1px solid grey;
-        border-radius: 20px;" placeholder="Last Name" name="L_name" required autocomplete="off">
-       <input type="email" style="border:2pt; position: absolute;
-       width: 583px;
-       height: 50px;
-       left: 120px;
-       top: 150px;
-       border: 1px solid grey;
-       border-radius: 20px;"
-        placeholder="Enter your Email id" name="email" required autocomplete="off" >
-        <input type="text" style="border:2pt; position: absolute;
-       width: 583px;
-       height: 50px;
-       left: 120px;
-       top: 250px;
-       border: 1px solid grey;
-       border-radius: 20px;
-       font-family: sans-serif"
-        placeholder="Enter mobile No." name="mobile_no" required autocomplete="off">
-        <button style="position: absolute;
-        width: 100px;
-        height: 30px;
-        left: 370px;
-        top: 350px;
-        background: #276CE8;
-        border-radius: 50px;
-        font-family: Quicksand;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 15px;
-        line-height: 149.6%;
-        /* or 45px */
-
-        text-align: center;
-
-        color: #FFFDFD;
-        border: none;">Register</button>
-
+<body>
+  <div class="nav"></div>
+  <div class="background"></div>  
+  <div class="welcome">LabCode!</div>
+  <div class="instruction">If you have already registered then sign up with your username or email</div>
+  <a class="login_btn" href="{% url 'studentlogin' %}">Login</a>
+  <div class="form-box">
+  <div class="fill">Student Register Form</div>
+  <form method="POST" class="form">
+    {% csrf_token %}
+      <input type="text" class="firstname" placeholder="Enter first name" name="F_name" id="fname" autocomplete="off" required>
+      
+      <input type="text" class="lastname" placeholder="Enter last name" name="L_name" id="lname" autocomplete="off" required>
+     
+      <input type="email" class="email" placeholder="Enter your Email Id" name="email" id="email" autocomplete="off" required>
+     
+      <input type="text" class="phone" placeholder="Enter your Mobile No." name="mobile_no" id="Mobile_no" autocomplete="off" required>
+      
+      <input type="submit" name="submit" class="register"  value="Register">
+      <input type="reset"  class="Reset"  value="Reset">
+      {% if messages %}
+      {% for result in messages  %}
+      <b style="color: green;"> {{result}}</b>
+      {% endfor %}
+      {% endif %} 
+  
+  
     </form>
-    
-
-    </div>
+  </div>
 </body>
 </html>

@@ -31,6 +31,15 @@
   .CodeMirror-scroll { max-height: 730px; }
   .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
   .banner { background: #ffc; padding: 6px; border-bottom: 2px solid silver; text-align: center }
+  .help{
+    position: absolute;
+width: 60px;
+height: 30px;
+left: 1208px;
+top: 25px;
+background: #6679cf;
+border-radius: 10px;
+}
 </style>
 
 <script type="text/javascript">
@@ -68,7 +77,7 @@ requestFullScreen(elem);
         <option name="languages" value="Python">python</option>
          
     </select>
-    <img class="help" src="{% static 'help 1.png' %}">
+    <button class="help"><a href="{% url 'studentlogin' %}">Logout</a></button>
 
     <div class="question-box"></div>
     <div class="code-box">

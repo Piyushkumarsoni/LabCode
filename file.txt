@@ -1,0 +1,5 @@
+Prime numbers between 5 and 12 are:
+
+5
+7
+11
