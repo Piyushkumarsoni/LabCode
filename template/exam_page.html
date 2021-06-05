@@ -79,7 +79,7 @@ requestFullScreen(elem);
     </select>
     <button class="help"><a href="{% url 'studentlogin' %}">Logout</a></button>
 
-    <div class="question-box"></div>
+    <textarea class="question-box"disabled>{{Question}}</textarea>
     <div class="code-box">
         <section id=demo>
           {% csrf_token %}

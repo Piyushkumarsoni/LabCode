@@ -1,5 +1,15 @@
-Prime numbers between 5 and 12 are:
+Prime numbers between 23 and 78 are:
 
-5
-7
-11
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73

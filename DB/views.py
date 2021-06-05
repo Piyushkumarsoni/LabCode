@@ -17,7 +17,11 @@ import re
 
 
 @csrf_protect
+
 def runcode(request):
+    f=open('D:\\SEMESTER\\important\\labcodes\\DB\\question.txt','r')
+    ques=f.read()
+    f.close()
     if request.method== "POST":
         lang=request.POST['languages']
         code=request.POST['code']
@@ -59,7 +63,7 @@ def runcode(request):
                 output="Error in the code"
         except:
             pass
-    return render(request,'exam_page.html',{'output':output,'code':raw_code["code"],"input":y})
+    return render(request,'exam_page.html',{'output':output,'code':raw_code["code"],"input":y,'Question': ques})
 
 
 
@@ -68,12 +72,15 @@ def Indexpage(request):
 
 
 def Studentlogin(request):
+    f=open('D:\\SEMESTER\\important\\labcodes\\DB\\question.txt','r')
+    ques=f.read()
+    f.close()
     if request.method=="POST":
         try:
             Userdetails=Studentreg.objects.get(email=request.POST['email'],PSWD=request.POST['PSWD'])
             
             request.session['email']=Userdetails.email
-            return render(request,'exam_page.html')
+            return render(request,'exam_page.html',{'Question': ques})
         except ObjectDoesNotExist:
             messages.success(request,"Username/ password Invalid..!")
     return render(request,'studentlogin.html')
